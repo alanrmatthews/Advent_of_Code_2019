@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class Day1 {
     public static void main(String[] args) throws FileNotFoundException {
 
+        //TODO
+        //int[] ints = Files.lines(Paths.get("input.txt"))
+        //          .mapToInt(Integer::parseInt).toArray();
+        
         File input = new File(args[0]);
 
         ArrayList<Integer> masses = new ArrayList<Integer>();
