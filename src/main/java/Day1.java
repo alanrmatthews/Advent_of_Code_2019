@@ -1,33 +1,36 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-public class Day1 {
-    public static void main(String[] args) throws FileNotFoundException {
+class Day1 {
+    public static void main(String[] args) throws IOException {
 
-        //TODO
-        //int[] ints = Files.lines(Paths.get("input.txt"))
-        //          .mapToInt(Integer::parseInt).toArray();
-        
-        File input = new File(args[0]);
+        int[] masses = Files.lines(Paths.get("src/main/resources/Day1_input.txt"))
+                       .mapToInt(Integer::parseInt).toArray();
 
-        ArrayList<Integer> masses = new ArrayList<Integer>();
-
-        try (Scanner scanner = new Scanner(input)) {
-            while (scanner.hasNextInt()) {
-                masses.add(scanner.nextInt());
-            }
+        int fuelRequirement = 0;
+        int expandedFuelRequirement = 0;
+        for (int mass : masses) {
+            fuelRequirement += getFuelRequirement(mass);
+            expandedFuelRequirement += getExpandedFuelRequirement(mass);
         }
 
-        System.out.println(getFuelRequirement(masses));
+        System.out.println("Day 1 Fuel Requirement: " + fuelRequirement);
+        System.out.println("Day 1 Expanded Fuel Requirement: " + expandedFuelRequirement);
     }
 
-    static int getFuelRequirement(ArrayList<Integer> masses) {
+    static int getFuelRequirement(int mass) {
+        return mass / 3 - 2;
+    }
+
+    static int getExpandedFuelRequirement(int mass) {
         int output = 0;
 
-        for (int mass : masses) {
-            output += mass / 3 - 2;
+        int newFuelReqt = getFuelRequirement(mass);
+
+        while (newFuelReqt > 0) {
+            output += newFuelReqt;
+            newFuelReqt = getFuelRequirement(newFuelReqt);
         }
 
         return output;

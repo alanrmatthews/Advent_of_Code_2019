@@ -7,30 +7,18 @@ import static org.junit.Assert.*;
 public class Day1Test {
 
     @Test
-    public void getFuelRequirement12() {
-        ArrayList<Integer> input = new ArrayList<Integer>();
-        input.add(12);
-        assertEquals(Day1.getFuelRequirement(input), 2);
+    public void getFuelRequirement() {
+        assertEquals(Day1.getFuelRequirement(12), 2);
+        assertEquals(Day1.getFuelRequirement(14), 2);
+        assertEquals(Day1.getFuelRequirement(1969), 654);
+        assertEquals(Day1.getFuelRequirement(100756), 33583);
     }
 
     @Test
-    public void getFuelRequirement14() {
-        ArrayList<Integer> input = new ArrayList<Integer>();
-        input.add(14);
-        assertEquals(Day1.getFuelRequirement(input), 2);
-    }
-
-    @Test
-    public void getFuelRequirement1969() {
-        ArrayList<Integer> input = new ArrayList<Integer>();
-        input.add(1969);
-        assertEquals(Day1.getFuelRequirement(input), 654);
-    }
-
-    @Test
-    public void getFuelRequirement100756() {
-        ArrayList<Integer> input = new ArrayList<Integer>();
-        input.add(100756);
-        assertEquals(Day1.getFuelRequirement(input), 33583);
+    public void getExpandedFuelRequirement() {
+        assertEquals(Day1.getExpandedFuelRequirement(12), 2);
+        assertEquals(Day1.getExpandedFuelRequirement(14), 2);
+        assertEquals(Day1.getExpandedFuelRequirement(1969), 966);
+        assertEquals(Day1.getExpandedFuelRequirement(100756), 50346);
     }
 }
