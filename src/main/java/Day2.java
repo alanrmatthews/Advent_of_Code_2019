@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Day2 {
 
     protected static final int[] input = new int[]{1,0,0,3,1,1,2,3,1,3,4,3,1,5,0,3,2,1,9,19,1,5,19,23,1,6,23,27,1,27,10,31,1,31,5,35,
